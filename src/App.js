@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { CardList } from './components/card-list/card-list.component'
 
 class App extends Component {
   constructor() {
@@ -13,15 +14,17 @@ class App extends Component {
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
-    .then(result => result.json())
-    .then(data => this.setState({monsters:data}))
+      .then(result => result.json())
+      .then(data => this.setState({ monsters: data }))
   }
   render() {
     return (
       <div className="App">
-        <h1>{this.state.monsters.map(monsterName => (
+        <CardList> 
+        {this.state.monsters.map(monsterName => (
           <h1 key={monsterName.id}>{monsterName.name}</h1>
-        ))}</h1>
+        ))}</CardList>
+
       </div>
     );
   }
