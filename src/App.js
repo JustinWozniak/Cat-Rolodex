@@ -11,6 +11,7 @@ class App extends Component {
       cats: [],
       searchField: ""
     }
+   
   }
 
   componentDidMount() {
@@ -18,13 +19,19 @@ class App extends Component {
       .then(result => result.json())
       .then(data => this.setState({ cats: data }))
   }
+
+handleChange = (e) =>  {
+  this.setState({ searchField: e.target.value })
+}
+
   render() {
     const {cats, searchField} = this.state
     const filteredCats = cats.filter(cats => 
       cats.name.toLowerCase().includes(searchField.toLowerCase()))
     return (
       <div className="App">
-        <SearchBox   placeholder="Search Cat Names" handleChange={e => this.setState({ searchField: e.target.value })}/>
+      <h1>Justins Cat Rolodex</h1>
+        <SearchBox   placeholder="Search Cat Names" handleChange={this.handleChange}/>
         <CardList cats={filteredCats} />
       </div>
     );

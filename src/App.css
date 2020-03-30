@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+h1{
+font-family:Metal Mania;
+border: 2px solid black;
+outline: #47556B  solid 10px; 
+font-size: 50px;
+}
