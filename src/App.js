@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { CardList } from './components/card-list/card-list.component'
+import { CardList } from './components/card-list/card-list.component';
+import {SearchBox} from './components/search-box/search-box.component'
 
 class App extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class App extends Component {
       cats.name.toLowerCase().includes(searchField.toLowerCase()))
     return (
       <div className="App">
-        <input type="search" placeholder="Search Cat Names" onChange={e => this.setState({ searchField: e.target.value })} />
+        <SearchBox   placeholder="Search Cat Names" handleChange={e => this.setState({ searchField: e.target.value })}/>
         <CardList cats={filteredCats} />
       </div>
     );
